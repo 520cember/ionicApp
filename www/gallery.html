@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>ion-gallery</title>
+
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+    <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <script src="lib/ion-gallery/dist/ion-gallery.min.js"></script>
+    <script src="js/gallery.js"></script>
+
+</head>
+
+<body ng-app="ionicApp" ng-controller="GalleryCtrl">
+    <ion-view class="animated bounceInUp">
+
+        <ion-header-bar align-title="center" class="bar-positive">
+            <div class="buttons">
+                <a class="button button-" href="index.html">返回</a>
+            </div>
+            <h1 class="title">ion-gallery demo</h1>
+        </ion-header-bar>
+
+        <ion-content ion-sticky>
+            <ion-gallery ion-gallery-items="items" ion-gallery-row="3">
+            </ion-gallery>
+        </ion-content>
+
+    </ion-view>
+</body>
+</html>

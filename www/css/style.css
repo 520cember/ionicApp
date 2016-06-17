@@ -1,0 +1,12 @@
+.parent{display:table;table-layout:fixed;width:100%;}
+.row{display:table-row;}
+.item{display:table-cell;width:33.3%;height:150px;color:yellow;background:blue;text-align:center; vertical-align:middle;}
+
+/*.parent{display:flex;flex-direction:column;width:100%;}
+.row{height:200px;display:flex;}
+.item{width:33.3%;background:red;}*/
+
+a:link {background-color:#B2FF99;}    /* unvisited link */
+a:visited {background-color:#FFFF85;} /* visited link */
+a:hover {background-color:#FF704D;}   /* mouse over link */
+a:active {background-color:#FF704D;}  /* selected link */

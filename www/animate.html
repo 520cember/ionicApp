@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>ion-animate</title>
+
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/animateformodal.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <script src="js/animate.js"></script>
+
+</head>
+
+<body ng-app="ionicApp" ng-controller="animateCtrl">
+
+  <ion-view class="animated zoomInDown">
+
+    <ion-header-bar align-title="center" class="bar-positive">
+        <div class="buttons">
+            <a class="button button-" href="index.html">返回</a>
+        </div>
+        <h1 class="title">ion-animate demo</h1>
+    </ion-header-bar>
+
+     <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="modalAnimation in modalAnimations" ng-click="showModal(modalAnimation)">
+          {{modalAnimation}}
+        </ion-item>
+      </ion-list>
+    </ion-content>
+
+  </ion-view>
+
+    <script id="templates/modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Animate Css Modals</h1>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <div class="list">
+            <h3>How it works?</h3>
+
+            <a href="https://github.com/kevincobain2000/ionic-animated-modal" title="">
+              README https://github.com/kevincobain2000/ionic-animated-modal
+            </a>
+            <p>
+              <button class="button button-full button-positive" ng-click="hideModal()">CLOSE</button>
+            </p>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+    
+  </body>
+</html>

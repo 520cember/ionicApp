@@ -1,0 +1,19 @@
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
+.ionic_ratings .icon {
+  font-size:50px;
+}
+
+.ionic_ratings .read_only {
+  pointer-events:none;
+}
+
+.parent{display:table;table-layout:fixed;width:100%;}
+.row{display:table-row;}
+.item{display:table-cell;width:33.3%;height:200px;color:yellow;background:blue;text-align:center; vertical-align:middle;}
+
+/*.parent{display:flex;flex-direction:column;width:100%;}
+.row{height:200px;display:flex;}
+.item{width:33.3%;background:red;}*/

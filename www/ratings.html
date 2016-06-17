@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>IONIC RATINGS DEMO</title>
+   
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+    <link href="css/ratings.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="js/ratings.js">
+    </script>
+  </head>
+
+  <body ng-app="ionicApp" ng-controller="RatingsCtrl">
+    <ion-view class="animated zoomIn">
+      <ion-header-bar align-title="center" class="bar-positive">
+          <div class="buttons">
+                <a class="button button-" href="index.html">返回</a>
+            </div>
+          <h1 class="title">ion-ratings demo</h1>
+      </ion-header-bar>
+
+      <ion-content class="has-header" padding="true">
+          <div class="padding 10px,10px;">
+            <div>
+              <ionic-ratings ratingsobj='ratingsObject'></ionic-ratings>
+            </div>
+          </div>
+      </ion-content>
+    </ion-view>
+</body>
+
+</html>

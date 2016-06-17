@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ionic tab-slide-box</title>
+   
+   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+   <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+   <link href="lib/tabbed-slide-box/tabSlideBox.css" rel="stylesheet">
+   <script src="lib/tabbed-slide-box/tabSlideBox.js"></script>
+
+   <script>
+      var app = angular.module('slidebox', ['ionic', 'tabSlideBox'])
+    .run(['$q', '$http', '$rootScope', '$location', '$window', '$timeout', 
+          function($q, $http, $rootScope, $location, $window, $timeout){
+      
+          $rootScope.$on("$locationChangeStart", function(event, next, current){
+              $rootScope.error = null;
+              console.log("Route change!!!", $location.path());
+              var path = $location.path();
+              
+              
+              console.log("App Loaded!!!");
+          });
+      }
+      ]);
+    
+    app.config(function($stateProvider, $urlRouterProvider) {
+      $stateProvider.state('index', {
+        url : '/',
+        templateUrl : 'index.html',
+        controller : 'IndexCtrl'
+      });
+    
+      $urlRouterProvider.otherwise("/");
+    });
+    
+        app.controller("IndexCtrl", ['$rootScope', "$scope", "$stateParams", "$q", "$location", "$window", '$timeout', 
+      function($rootScope, $scope, $stateParams, $q, $location, $window, $timeout){
+      $scope.onSlideMove = function(data){
+        alert("You have selected " + data.index + " tab");
+      };  
+        }
+        ]);
+    </script>
+    
+  <style>
+    .slider-slide h3{
+      color:#fff;
+      margin-top:10px;
+    };
+    
+    .scroll{
+      height:100%;
+    };
+    
+    
+  </style>
+  
+  </head>
+
+  <body ng-app="slidebox" animation="slide-left-right-ios7">
+
+    <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
+        <ion-nav-back-button class="button-icon ion-arrow-left-c">
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view ng-controller="IndexCtrl"></ion-nav-view>
+  
+    <script id="index.html" type="text/ng-template">
+      <ion-view title="Tabbed Slide box">
+        <ion-content scroll="false">
+            <tab-slide-box tab="2" >
+            <div class="tsb-icons">
+              <div class="tsb-ic-wrp">
+              <a href="javascript:;" class="ion-home"></a>
+              <a href="javascript:;" class="ion-ios-game-controller-b"></a>
+              <a href="javascript:;" class="ion-email"></a>
+              <a href="javascript:;" class="ion-model-s"></a>
+              <a href="javascript:;" class="ion-person"></a>
+            </div>
+            </div>
+              <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                  <ion-slide>
+                      <h3>Home content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Games content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Mail content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Car content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Profile content</h3>
+                  </ion-slide>
+                  
+              </ion-slide-box>
+            </tab-slide-box>
+        </ion-content>
+      </ion-view>
+    </script>
+  </body>
+</html>

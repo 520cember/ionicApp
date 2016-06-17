@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>ion-imglazyload</title>
+
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/animateformodal.css" rel="stylesheet">
+
+    <link href="css/imglazyload.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <script src="lib/ionic-image-lazy-load/ionic-image-lazy-load.js"></script>
+    
+    <script src="js/imglazyload.js"></script>
+
+</head>
+
+<body ng-app="ionicApp" ng-controller="imglazyloadCtrl">
+  
+  <ion-view class="animated fadeInUp">
+
+    <ion-header-bar align-title="center" class="bar-positive">
+        <div class="buttons">
+            <a class="button button-" href="index.html">返回</a>
+        </div>
+        <h1 class="title">ion-imglazyload demo</h1>
+    </ion-header-bar>
+    
+    <ion-content lazy-scroll>
+
+      <div class="list animated zoomIn">
+
+        <a ng-repeat="item in items" 
+           href="#/{{item.id}}"
+           class="item item-thumbnail-left">
+
+          <!-- I've deliberately set the image-lazy-distance-from-bottom-to-load to a negative value to show you how the loader looks like. Put to a positive value to load the image before it is displayed  -->
+          <img image-lazy-src="{{ item.image }}" lazy-scroll-resize="true" image-lazy-loader="android" image-lazy-distance-from-bottom-to-load="-50">
+          <h2>{{ item.name }}</h2>
+        </a>
+
+      </div>
+
+    </ion-content>
+
+  </ion-view>  
+
+</body>
+</html>

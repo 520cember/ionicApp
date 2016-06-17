@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>swipecards demo</title>
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/swipecards.css" rel="stylesheet">
+
+  <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+  <script src="js/ionic.swipecards.js"></script>
+   <script src="js/swipecards.js"></script>
+
+</head>
+
+<body ng-app="ionicApp" no-scroll>
+
+<ion-view class="animated fadeInDown">
+  
+  <ion-header-bar class="bar-positive" align-title="center">
+      <h1 class="title">swipecards demo</h1>
+  </ion-header-bar>
+  
+  <ion-panel ng-controller="CardsCtrl" >
+    <swipe-cards>
+      <swipe-card on-card-swipe="cardSwiped()" id="start-card">
+        Swipe down for a new card
+      </swipe-card>
+      <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)">
+        <div ng-controller="CardCtrl">
+          <div class="title">
+            {{card.title}}
+          </div>
+          <div class="image">
+            <img ng-src="{{card.image}}">
+          </div>
+          <div class="button-bar">
+            <button class="button button-clear button-positive" ng-click="goAway()">Answer</button>
+            <button class="button button-clear button-positive" ng-click="goAway()">Decline</button>
+          </div>
+        </div>
+      </swipe-card>
+    </swipe-cards>
+  </ion-panel>
+
+</ion-view>
+</body>
+
+</html>

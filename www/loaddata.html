@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ionic loaddata</title>
+   
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <script type="text/javascript">
+      angular.module('ionicApp', ['ionic'])
+
+      .run(function($ionicPlatform) {
+        $ionicPlatform.ready(function() {
+          // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+          // for form inputs)
+          if(window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+          }
+          if(window.StatusBar) {
+            StatusBar.styleDefault();
+          }
+        });
+      })
+
+      .controller( 'loaddataCtrl',['$scope','$timeout' ,'$http',function($scope,$timeout,$http){
+
+          $scope.items = [];
+          $scope.isMore = false;
+          $scope.more = "更多";
+
+          for (var i=1; i<10; i++) {
+              $scope.items.push("Item " + i);
+          }
+
+          var currentStart = 1;
+          $scope.addItems = function() {
+              for (var i = currentStart; i < currentStart+10; i++) {
+                  $scope.items.push("New Item " + i);
+              }
+
+              currentStart += 10;
+              $scope.$broadcast('scroll.infiniteScrollComplete');
+          };
+
+          $scope.doRefresh = function() {       
+              $scope.$broadcast('scroll.infiniteScrollComplete');
+          };
+
+          $scope.isMoreFun = function() {
+              $scope.isMore = !$scope.isMore;
+
+              if($scope.isMore){
+                $scope.more = "普通";
+              }else{
+                $scope.more = "更多";
+          }
+          };
+      }])
+    </script>
+  </head>
+
+  <body ng-app="ionicApp" ng-controller="loaddataCtrl">
+
+    <ion-view class="animated zoomInDown">
+
+      <ion-header-bar class="bar-positive" align-title="center">
+        <div class="buttons">
+          <a class="button" href="index.html">返回</a>
+        </div>
+        <h1 class="title">loaddata demo</h1>
+      </ion-header-bar>
+
+      <ion-content>
+        <button class="button button-light" ng-click="isMoreFun()">
+          {{more}}
+        </button>
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+          <ion-item ng-repeat="item in items track by $index">
+            <p>{{item}}</p>
+          </ion-item>
+        </ion-list>
+        <ion-infinite-scroll ng-if="isMore" on-infinite="addItems()" distance="5%"></ion-infinite-scroll>
+      </ion-content>
+
+    </ion-view>
+</body>
+
+</html>

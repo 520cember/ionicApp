@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>ion-toast</title>
+
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <link href="lib/ionic-toast/src/style.css" rel="stylesheet">
+    <script src="lib/ionic-toast/dist/ionic-toast.js"></script>
+    
+    <script src="js/iontoast.js"></script>
+
+</head>
+
+<body ng-app="ionicApp" ng-controller="toastCtrl">
+  
+  <ion-view class="animated slideInDown">
+
+    <ion-header-bar align-title="center" class="bar-positive">
+        <div class="buttons">
+            <a class="button button-" href="index.html">返回</a>
+        </div>
+        <h1 class="title">ion-toast demo</h1>
+    </ion-header-bar>
+    
+    <ion-content class="padding has-header">
+      <div>
+        <button class="button button-block button-calm" ng-click="showToastTop()">Show Toast at top with close</button>
+        <button class="button button-block button-calm" ng-click="showToastMiddle()">Show Toast at middle without close</button>
+        <button class="button button-block button-calm" ng-click="showToastBottom()">Show Toast at botton without close</button>
+      </div>
+      <div class="scroll-bar scroll-bar-v">
+        <div class="scroll-bar-indicator scroll-bar-fade-out" style="transform: translate3d(0px, 0px, 0px) scaleY(1); height: 0px;"></div>
+      </div>
+    </ion-content>
+
+    <div class="ionic_toast ionic_toast_top ionic_toast_sticky" style="display: none; opacity: 0;" ng-class="ionicToast.toastClass" ng-style="ionicToast.toastStyle">
+      <span class="ionic_toast_close" ng-click="hide()">
+        <i class="ion-close-round toast_close_icon"></i>
+      </span>
+      <span class="ng-binding" ng-bind-html="ionicToast.toastMessage">This is a toast at the top.</span>
+    </div>
+
+    </ion-view>  
+</body>
+</html>
