@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>ionic App</title>
+   
+    <link href="www/lib/ionic/css/ionic.css" rel="stylesheet">
+
+    <link href="www/css/style.css" rel="stylesheet">
+
+    <script src="www/lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <script src="www/lib/jquery/jquery-1.11.3.min.js"></script>
+
+    <script src="www/js/index.js"></script>
+   
+  </head>
+
+  <body ng-app="ionicApp">
+
+  <ion-header-bar class="bar-positive" align-title="center">
+      <h1 class="title">Just for fun</h1>
+  </ion-header-bar>
+
+  <ion-content class="has-header">
+    <ion-scroll zooming="true" direction="y" style="width: auto;">
+      <div class="parent">
+        <div class="row">
+          <a class="item" href="accordion.html">accordion</a>
+          <a class="item" href="ratings.html">ratings</a>
+          <a class="item" href="alphascroll.html">alphascroll</a>
+        </div>
+        <div class="row">
+          <a class="item" href="gallery.html">gallery</a>
+          <a class="item" href="iondatepicker.html">datepicker</a>
+          <a class="item" href="pullup.html">pullup</a>
+        </div>
+        <div class="row">
+          <a class="item" href="segmented.html">segmented</a>
+          <a class="item" href="slidebox.html">slidebox</a>
+          <a class="item" href="sticky.html">sticky</a>
+        </div>
+        <div class="row">
+          <a class="item" href="iontimepicker.html">timepicker</a>
+          <a class="item" href="iontoast.html">toast</a>
+          <a class="item" href="imglazyload.html">imglazyload</a>
+        </div>
+        <div class="row">
+          <a class="item" href="animate.html">animate</a>
+          <a class="item" href="loaddata.html">loaddata</a>
+          <a class="item" href="tabslidebox.html">tabslidebox</a>
+        </div>
+        <div class="row">
+          <a class="item" href="swipecards.html">swipecard</a>
+          <a class="item" href="#">2</a>
+          <a class="item" href="#">3</a>
+        </div>
+      </div>
+    </ion-scroll>
+  </ion-content>
+
+   <script type="text/javascript">
+      $(document).ready(function($){
+         var width = $(".item").css("width");
+         var height = $(".item").css("height");
+         $(".item").css("height",width);
+      }(jQuery));
+    </script>
+
+</body>
+
+</html>
